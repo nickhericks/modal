@@ -4,7 +4,8 @@
 const openButton = document.querySelector('.jsModalToggle');
 const closeButton = document.querySelector('.jsModalClose');
 const body = document.querySelector('body');
-const modalContainer = document.querySelector('.modal-container');
+const modal = document.querySelector('.modal')
+const container = document.querySelector('.modal-container')
 
 
 // Having an event listener on the entire page allows us to
@@ -15,12 +16,21 @@ body.addEventListener('click', function(event) {
 		console.log(event.target);
 		body.classList.add('modal-is-open');
 	}
-	else if (event.target === modalContainer){
-		body.classList.remove('modal-is-open');
-	}
 });
 
-
+// Close modal when close button is clicked
 closeButton.addEventListener('click', _ => {
 	document.body.classList.remove('modal-is-open');
 });
+
+// Don't allow clicks on modal
+modal.addEventListener('click', e => {
+	e.stopPropagation()
+})
+
+// Close modal if modal container is clicked
+container.addEventListener('click', e => {
+	if (!e.target.closest('.modal')) {
+		document.body.classList.remove('modal-is-open')
+	}
+})
