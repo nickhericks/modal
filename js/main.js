@@ -6,7 +6,7 @@ const closeButton = document.querySelector('.jsModalClose')
 const body = document.querySelector('body');
 
 
-// Having an event listener on teh entire page allows us to
+// Having an event listener on the entire page allows us to
 // close the modal by clicking anywhere on the body after it is open.
 body.addEventListener('click', function(event) {
   console.log(event.target);
