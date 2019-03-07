@@ -23,56 +23,6 @@ h2 {
   font-weight: 400;
 }
 
-@keyframes point {
-  0% {
-    transform: translateY(3em);
-    opacity: 0;
-  }
-
-  100% {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-
-.point-hand {
-  animation: point 1s cubic-bezier(0.18, 0.89, 0.32, 1.28);
-}
-
-/* Makes waving hand zoom out */
-@keyframes zoom {
-  0% {
-    transform: scale(0.25);
-    opacity: 0;
-  }
-
-  100% {
-    transform: scale(1);
-    opacity: 1;
-  }
-}
-
-@keyframes wave {
-  0% { transform: rotate(0); }
-  20% { transform: rotate(15deg); }
-  40% { transform: rotate(-15deg); }
-  60% { transform: rotate(15deg); }
-  80% { transform: rotate(-15deg); }
-  100% { transform: rotate(0); }
-}
-
-.wave-hand {
-  /* This is the backwards cubic-bezier curve */
-  transform-origin: bottom center;
-	animation: zoom 0.5s cubic-bezier(0.18, 0.89, 0.32, 1.28),
-	wave 1s 0.55s ease-in-out;
-  animation-play-state: paused;
-}
-
-.modal-is-open .wave-hand {
-  animation-play-state: running;
-}
-
 .button {
   padding: 0.5em 0.75em;
   border-radius: 6px;
@@ -111,6 +61,11 @@ h2 {
   margin-left: auto;
 }
 
+/**
+ * START EDITING HERE
+ * ==================
+ */
+
 .modal-container {
   position: fixed;
   display: flex;
@@ -121,14 +76,13 @@ h2 {
   bottom: 0;
   left: 0;
   opacity: 0;
-	z-index: -1;
+  z-index: -1;
   transition: opacity 0.3s ease-out, z-index 0s 0.3s;
 }
 
-.modal-is-open .modal-container {
-  z-index: 1;
+body.modal-is-open .modal-container {
   opacity: 1;
-  background-color: rgba(0, 0, 0, 0.25);
+  z-index: 1;
   transition-delay: 0s;
 }
 
@@ -165,4 +119,20 @@ h2 {
 
 .modal__content > * + * {
   margin-top: 0.75em;
+}
+
+/* Point hand animation */
+@keyframes point {
+  0% {
+    opacity: 0;
+    transform: translateY(3em);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.point-hand {
+  animation: point 1s cubic-bezier(0.18, 0.89, 0.32, 1.28);
 }
