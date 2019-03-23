@@ -8,4 +8,4 @@
 This project is part of a great JS course called [Learn JavaScript](https://learnjavascript.today/). Thank you to the course creator [@zellwk](https://github.com/zellwk) :raised_hands:
 
 ## Demo
-<img src="https://github.com/zellwk/jsf/raw/master/images/components/modal/events/prevent-close.gif" width="300">
+<img src="https://github.com/zellwk/jsf/raw/master/images/components/modal/animate/complete.gif" width="500">
